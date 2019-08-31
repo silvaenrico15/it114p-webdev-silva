@@ -1,6 +1,31 @@
+const path = require('path');
 const express = require('express');
-const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
 
-app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
+const app = express();
+
+//Set default template engine
+app.set('view engine', 'ejs');
+
+//Include custom routes
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+//To parse incoming body, without it you will get undefined value.
+app.use(bodyParser.urlencoded({ extended: false }));
+//To set our public files such as css and js
+app.use(express.static(path.join(__dirname, 'public')));
+
+//We tell our app to custom routes that we had included
+app.use(adminData.routes);
+app.use(shopRoutes);
+//Default route when page is not found
+app.use((req, res, next) => {
+  res.status(404).render('404',
+    {
+      pageTitle: '404 - Page Not Found',
+      path: ""
+    });
+});
+
+app.listen(3000);

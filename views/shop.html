@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/nav.ejs') %>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                <% if (prods.length > 0) { %>
+                <% for (let product of prods) { %>
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image container section is-128x128">
+                                <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/book-bookmark-icon.png">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4"><%=product.title%></p>
+                                    <p class="subtitle is-6">$19.99</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                                <br>
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <% } else { %>
+                <h1>No Products Found!</h1>
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <%- include('includes/scripts.ejs') %>
+</body>
+
+</html>

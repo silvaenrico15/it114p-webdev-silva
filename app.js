@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const port = 3000;
 const app = express();
 
 //Set default template engine
@@ -28,4 +28,4 @@ app.use((req, res, next) => {
     });
 });
 
-app.listen(3000);
+app.listen(port, ()=> console.log(`Server running at http://localhost:${port}`));

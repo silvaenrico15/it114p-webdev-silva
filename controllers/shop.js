@@ -11,3 +11,12 @@ exports.getProducts = (req, res, next) => {
     })
     .catch(err => console.log(err));
 };
+exports.deleteProducts = (req, res, next) => 
+{
+ Product.deleteById(req.params.id)
+ {
+  
+    res.redirect('/');
+  }
+  
+  };

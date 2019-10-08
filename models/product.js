@@ -9,14 +9,18 @@ module.exports = class Product {
         this.price = price;
     }
 
-    save() {
+    save()
+     {
         return db.execute(
             'INSERT INTO products (title, price, imageUrl, description, created_by) VALUES (?, ?, ?, ?, ?)',
             [this.title, this.price, this.imageUrl, this.description, 'SYSTEM']
           );
     }
 
-    static deleteById(id) {}
+    static deleteById(id) 
+    {
+        return db.execute('DELETE FROM products WHERE products.id = ?', [id]);
+    }
 
     static fetchAll() {
         return db.execute('SELECT * FROM products');

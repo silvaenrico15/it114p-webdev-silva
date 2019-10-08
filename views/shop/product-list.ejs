@@ -22,11 +22,15 @@
                                 <div class="media-content">
                                     <p class="subtitle is-6">$<%=product.price%></p>
                                     <p class="title is-4"><%=product.title%></p>
+                                    <a><i class="mdi mdi-16px mdi-lead-pencil"></i></a>
+                                    <a href="/<%=product.id%>"><i class="mdi mdi-16px mdi-delete"></i></a>
                                 </div>
+
                             </div>
 
                             <div class="content">
                                     <%=product.description%>
+                                    
                                 <br>
                                 <span class="is-size-7"><%=product.created_at%></span>
                             </div>

@@ -16,7 +16,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //To set our public files such as css and js
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bulma/css')));
+<<<<<<< HEAD
+<<<<<<< HEAD
+app.use('/font', express.static(path.join(__dirname, 'node_modules/@mdi/font')));
+=======
 app.use('/fonts', express.static(path.join(__dirname,'node_modules/@mdi/font')));
+>>>>>>> Make Use of CSS Framework
+=======
+app.use('/fonts', express.static(path.join(__dirname,'node_modules/@mdi/font')));
+>>>>>>> origin/master
 //We tell our app to custom routes that we had included
 app.use(adminData.routes);
 app.use(shopRoutes);
